@@ -23,6 +23,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return res.status(200).end();
   }
 
+  if (params && typeof params.json !== "undefined") {
+    return res.status(200).json({ item, is_playing, progress_ms });
+  }
+
   res.setHeader("Content-Type", "image/svg+xml");
   res.setHeader("Cache-Control", "s-maxage=1, stale-while-revalidate");
 
