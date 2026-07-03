@@ -24,7 +24,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   if (params && typeof params.json !== "undefined") {
-    return res.status(200).json({ item, is_playing, progress_ms });
+    return res.status(200).json({ item, isPlaying, progress });
   }
 
   res.setHeader("Content-Type", "image/svg+xml");
