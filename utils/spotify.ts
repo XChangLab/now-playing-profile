@@ -39,12 +39,12 @@ export async function nowPlaying(): Promise<Partial<SpotifyApi.CurrentlyPlayingR
     },
   });
   const { status } = response;
-  console.log(status, 'spotify status')
+  console.warn(status, 'spotify status')
   if (status === 204) {
     return {};
   } else if (status === 200) {
     const data = await response.json();
-    console.log('now playing info: ', data)
+    console.warn('now playing info: ', data)
     return data;
   }
 }
